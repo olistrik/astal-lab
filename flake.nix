@@ -11,27 +11,28 @@
   };
 
   outputs = { flake-utils, nixpkgs, ags, ... }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs { inherit system; };
-      in
-      {
-        packages.default = {
-          default = ags.lib.bundle {
-            src = ./.;
-            name = "astal-lab";
+    flake-utils.lib.eachDefaultSystem
+      (system:
+        let
+          pkgs = import nixpkgs { inherit system; };
+        in
+        {
+          packages.default = ags.lib.bundle {
+            inherit pkgs;
+            src = ./core;
+            name = "astal-lab-core";
             entry = "app.ts";
           };
-        };
 
-        devShells.default = pkgs.mkShell {
-          packages = with pkgs; [
-            git
-            bun
-            (ags.packages."${system}".default.override {
-              extraPackages = [ ];
-            })
-          ];
-        };
-      });
+          devShells.default = pkgs.mkShell {
+            packages = with pkgs;
+              [
+                git
+                bun
+                (ags.packages."${system}".default.override {
+                  extraPackages = [ ];
+                })
+              ];
+          };
+        });
 }

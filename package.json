@@ -1,0 +1,14 @@
+{
+	"name": "astal-labs",
+	"type": "module",
+	"private": true,
+	"scripts": {
+	},
+	"workspaces": [
+		"core",
+		"example"
+	],
+	"devDependencies": {
+		"prettier": "3.3.2"
+	}
+}
