@@ -27,6 +27,7 @@
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
             git
+            bun
             (ags.packages."${system}".default.override {
               extraPackages = [ ];
             })

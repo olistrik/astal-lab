@@ -1,0 +1,20 @@
+{
+  "lockfileVersion": 1,
+  "workspaces": {
+    "": {
+      "name": "astal-shell",
+      "dependencies": {
+        "astal": "/nix/store/8cl58ip2nasg6rdyj59cwg2f0qbixs28-astal-gjs/share/astal/gjs",
+        "typescript": "5.7.3",
+        "typescript-language-server": "^4.3.4",
+      },
+    },
+  },
+  "packages": {
+    "astal": ["astal@file:../../../../../../nix/store/8cl58ip2nasg6rdyj59cwg2f0qbixs28-astal-gjs/share/astal/gjs", {}],
+
+    "typescript": ["typescript@5.7.3", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw=="],
+
+    "typescript-language-server": ["typescript-language-server@4.3.4", "", { "bin": { "typescript-language-server": "lib/cli.mjs" } }, "sha512-0pQ4ffAarsf10VwFhyyyqNJhuDd4r6f4dSsQN38WdbQ3WVxqi08p/bI//v1VnOV5CSVd4AeOUY/jfJYheHTQPQ=="],
+  }
+}
